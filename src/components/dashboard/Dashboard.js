@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import LineChart from "./LineChart";
 import PieChartComponent from "./PieChart";
+import MeetingBoard from "./MeetingBoard";
 
 class Dashboard extends Component {
   render() {
@@ -24,7 +25,7 @@ class Dashboard extends Component {
           <LineChart title="Activities"/>
           <div className="flex mt-10 gap-10">
             <PieChartComponent title="Top Products" />
-            <PieChartComponent />
+            <MeetingBoard title="Today's schedule" />
           </div>
         </div>
       </div>
