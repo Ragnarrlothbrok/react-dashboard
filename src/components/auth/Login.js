@@ -24,11 +24,12 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const userData = {
-      email,
-      password,
-    };
-    props.loginUser(userData);
+    // const userData = {
+    //   email,
+    //   password,
+    // };
+    //Ready to be added with API
+    // props.loginUser(userData);
   };
 
   const responseGoogle = (response) => {
@@ -55,12 +56,12 @@ const Login = (props) => {
           <div className="flex gap-6">
             <GoogleLogin
               onSuccess={responseGoogle}
-              width="100px"
+              width="10px"
               onError={errorGoogle}
             />
             <GoogleLogin
               onSuccess={responseGoogle}
-              width="100px"
+              width="10px"
               onError={errorGoogle}
             />
           </div>
@@ -96,7 +97,8 @@ const Login = (props) => {
             />
           </form>{" "}
           <div className="text-center mt-5 font-lato text-base text-neutral-500">
-            Don’t have an account?{" "}<button className="text-cyan-600">Register here</button>
+            Don’t have an account?{" "}
+            <button className="text-cyan-600">Register here</button>
           </div>
         </div>
       </div>

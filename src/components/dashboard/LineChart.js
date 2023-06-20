@@ -1,6 +1,8 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
+import SideButton from "../common/SideButton";
+import { ReactComponent as DownArrow } from '../../assets/down-arrow.svg';
 
 const labels = ["January", "February", "March", "April", "May", "June"];
 
@@ -25,6 +27,7 @@ const data = {
 };
 
 const options = {
+  maintainAspectRatio: false,
   layout: {
     padding: 0,
   },
@@ -53,11 +56,14 @@ const options = {
   },
 };
 
-const LineChart = ({title}) => {
+const LineChart = ({ title }) => {
   return (
-    <div className="bg-white rounded-2xl py-7 px-10">
-      <h4 className="font-montserrat text-lg font-bold mb-1">{title}</h4>
-      <Line options={options} data={data} />
+    <div className="relative bg-white rounded-2xl p-4 lg:py-7 lg:px-10" style={{ height: "359px" }}>
+      <h4 className="font-montserrat md:text-base lg:text-lg font-bold mb-1">{title}</h4>
+      <SideButton text="May - June 2021" icon={<DownArrow />}/>
+      <div style={{ height: "247px" }}>
+        <Line options={options} data={data} />
+      </div>
     </div>
   );
 };

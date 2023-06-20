@@ -7,3 +7,8 @@
     @apply text-4xl;
   }
 }
+
+/* Font Color Utility */
+.text--gray {
+  color: #858585;
+}

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ReactComponent as RightArrow } from "../../assets/right-arrow.svg";
+import SideButton from "../common/SideButton";
 
 const meetings = [
   {
@@ -18,26 +20,22 @@ const meetings = [
 const MeetingBoard = ({ title }) => {
   const [meetingData, setMeetingData] = useState([]);
 
-  const simulateFetch = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(meetings);
-      }, 100);
-    });
-  }
+  const sleep = (ms) =>
+    new Promise((resolve) => setTimeout(() => resolve(meetings), ms));
 
   const fakeFetch = async () => {
-    const fetchedMeetings = await simulateFetch();
+    const fetchedMeetings = await sleep(1000);
     setMeetingData(fetchedMeetings);
-  }
+  };
 
+  //to give an effect of fetching.
   useEffect(() => {
     fakeFetch();
   }, []);
 
   const renderMeetings = () => {
     if (!meetingData.length) {
-      return <div className="font-lato text-4xl">No meetings Today!</div>;
+      return <div className="font-lato text-md">No meetings Today!</div>;
     }
     return meetings.map((meeting) => {
       return (
@@ -56,17 +54,12 @@ const MeetingBoard = ({ title }) => {
   };
 
   return (
-    <div className="w-1/2 bg-white rounded-2xl py-7 px-10">
+    <div className="w-1/2 bg-white rounded-2xl p-4 lg:py-7 lg:px-10">
       <div className="flex justify-between mb-6">
-        <h4 className="font-montserrat text-lg font-bold ">{title}</h4>
-        <div className="border-none font-lato text-sm text-[#666666] self-center cursor-pointer">
-          {" "}
-          See All
-        </div>
+        <h4 className="font-montserrat text-base lg:text-lg font-bold">Today's schedule</h4>
+        <SideButton text="See All" icon={<RightArrow />} />
       </div>
-      <div className="flex flex-col items-center justify-center">
-        {renderMeetings}
-      </div>
+      <div className="flex flex-col">{renderMeetings()}</div>
     </div>
   );
 };

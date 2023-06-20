@@ -1,6 +1,7 @@
 import React from "react";
-import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
+import SideButton from "../common/SideButton";
+import { ReactComponent as DownArrow } from "../../assets/down-arrow.svg";
 
 const labels = ["Active", "In progress", "Expired", "Never submitted"];
 const data = [10, 20, 30, 10];
@@ -50,8 +51,13 @@ const options = {
 
 const PieChart = () => {
   return (
-    <div className="bg-white w-1/2 rounded-2xl py-7 px-10">
-      <h4 className="font-montserrat text-lg font-bold mb-1">Activities</h4>
+    <div className="bg-white w-1/2 rounded-2xl p-4 lg:py-7 lg:px-10">
+      <div className="flex justify-between mb-1">
+        <h4 className="font-montserrat text-base lg:text-lg font-bold">
+          Activities
+        </h4>
+        <SideButton text="May - June 2021" icon={<DownArrow />} />
+      </div>
       <div className="mt-6 h-36 w-full">
         <Pie options={options} data={dataSet} style={{ width: "100%" }} />
       </div>

@@ -4,25 +4,19 @@ import { connect } from "react-redux";
 import LineChart from "./LineChart";
 import PieChartComponent from "./PieChart";
 import MeetingBoard from "./MeetingBoard";
+import Header from "./Header";
+import SideBar from "./Sidebar";
+import CardRow from "./CardRow";
 
 class Dashboard extends Component {
   render() {
-    const { user } = this.props.auth;
-
-    // let dashboardContent;
-    // dashboardContent = (
-    //   <div>
-    //     <p className="lead text-muted">Welcome {user.name}</p>
-    //   </div>
-    // );
-
     return (
-      <div className="flex h-screen flex-row p-10 gap-[50px] bg-[#dddddd]">
-        <div className="w-1/5 flex flex-col bg-black text-white rounded-[30px] px-[50px] py-[60px]">
-          "Some data for now"
-        </div>
+      <div className="flex max-h-max flex-row p-4 lg:p-10 gap-[20px] lg:gap-[50px] bg-[#dddddd]">
+        <SideBar />
         <div className="w-4/5">
-          <LineChart title="Activities"/>
+          <Header />
+          <CardRow />
+          <LineChart title="Activities" />
           <div className="flex mt-10 gap-10">
             <PieChartComponent title="Top Products" />
             <MeetingBoard title="Today's schedule" />
