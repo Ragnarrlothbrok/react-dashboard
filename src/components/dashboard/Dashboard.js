@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import LineChart from "./LineChart";
+import PieChartComponent from "./PieChart";
 
 class Dashboard extends Component {
   render() {
@@ -14,12 +16,16 @@ class Dashboard extends Component {
     // );
 
     return (
-      <div className="flex h-screen flex-row m-10 gap-[50px]">
+      <div className="flex h-screen flex-row p-10 gap-[50px] bg-[#dddddd]">
         <div className="w-1/5 flex flex-col bg-black text-white rounded-[30px] px-[50px] py-[60px]">
           "Some data for now"
         </div>
-        <div className="w-4/5 m-5">
-          "Some another data"
+        <div className="w-4/5">
+          <LineChart title="Activities"/>
+          <div className="flex mt-10 gap-10">
+            <PieChartComponent title="Top Products" />
+            <PieChartComponent />
+          </div>
         </div>
       </div>
     );
